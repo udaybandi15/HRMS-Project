@@ -1,0 +1,7 @@
+node_modules/
+hrms-backend/node_modules/
+hrms-frontend/node_modules/
+.env
+hrms-backend/.env
+dist/
+build/

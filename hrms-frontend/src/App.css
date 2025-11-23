@@ -1,0 +1,197 @@
+/* src/App.css */
+
+/* --- 1. Global Reset & Variables --- */
+:root {
+  --primary: #4f46e5;
+  --primary-hover: #4338ca;
+  --bg-color: #f3f4f6;
+  --text-main: #1f2937;
+  --card-bg: #ffffff;
+  --border: #e5e7eb;
+}
+
+* {
+  box-sizing: border-box; /* Crucial for responsive widths */
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* --- 2. Auth Pages (Login/Register) --- */
+.auth-container {
+  display: flex;
+  justify-content: center; /* Center Horizontally */
+  align-items: center; /* Center Vertically */
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px; /* Prevents card touching edges on mobile */
+}
+
+.auth-card {
+  background: var(--card-bg);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px; /* Limits width on desktop */
+  text-align: center;
+}
+
+/* --- 3. Dashboard Layout --- */
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--primary);
+  color: white;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Grid for Desktop: Side-by-Side */
+.grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 2rem;
+}
+
+/* --- 4. Components --- */
+.card {
+  background: var(--card-bg);
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  border: 1px solid var(--border);
+  height: 100%; /* Makes cards same height in grid */
+}
+
+.card h3 {
+  margin-top: 0;
+  border-bottom: 2px solid var(--bg-color);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  color: var(--primary);
+}
+
+/* --- 5. Inputs & Buttons --- */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+input,
+select {
+  width: 100%; /* Full width of container */
+  padding: 12px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  background-color: #f9fafb;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: var(--primary);
+  background-color: #fff;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+}
+
+.btn {
+  width: 100%;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.2); /* Transparent white */
+  width: auto; /* Don't stretch logout button */
+  padding: 8px 16px;
+  font-size: 0.9rem;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* --- 6. Lists --- */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  background: #f9fafb;
+  margin-bottom: 10px;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  border-left: 4px solid var(--primary);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- 7. MOBILE RESPONSIVENESS (Media Queries) --- */
+
+@media (max-width: 768px) {
+  /* Dashboard turns into a single column stack */
+  .grid-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Navbar stacks vertically */
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .btn-secondary {
+    width: 100%; /* Full width logout button on mobile */
+  }
+
+  /* Adjust padding for small screens */
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+}
